@@ -1,91 +1,60 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import Card from "@/components/Card";
+import Input from "@/components/Input";
+import MainLayout from "@/layout/MainLayout";
+import Image from "next/image";
 
-const inter = Inter({ subsets: ['latin'] })
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <MainLayout>
+      <Card>
+        {/* Title */}
+        <div className="w-full">
+          <h1 className="text-lg text-center md:text-left">
+            Basic information
+          </h1>
+        </div>
+
+        {/* Main Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 mt-3">
+          {/* Image Section */}
+          <section className="flex flex-col justify-start items-center h-min space-y-4 border col-span-1 border-border p-8 rounded-md md:mt-7">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+              src="https://avatars.githubusercontent.com/u/98334060?v=4"
+              alt="profile avatar"
+              width={300}
+              height={300}
+              className="w-30 rounded-full"
             />
-          </a>
+            <p className="font-bold text-link text-center md:text-xs cursor-pointer">
+              Replace image
+            </p>
+          </section>
+
+          {/* Form Section */}
+          <section className="grid grid-cols-2 col-span-1 md:col-span-2 xl:grid-rows-4 gap-2 md:gap-1 mt-5 md:mt-0">
+            <Input col={1} label="First name" placeholder="Alireza" />
+            <Input col={1} label="Last name" placeholder="Abedi" />
+            <Input col={2} label="Occupation" placeholder="UI/UX Designer" />
+            <Input col={2} label="Company" placeholder="NorseProgrammers" />
+            <Input
+              col={1}
+              label="Location"
+              placeholder="Iran"
+              icon={<ChevronDownIcon className="w-4 mr-2 cursor-pointer" />}
+            />
+          </section>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+        <div className="flex justify-end items-center mt-5 space-x-2">
+          <button className="bg-background font-bold text-sm p-2 rounded-md">
+            Cancel
+          </button>
+          <button className="bg-white text-xs font-bold text-background p-3 rounded-md">
+            Set changes
+          </button>
         </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </Card>
+    </MainLayout>
+  );
 }
