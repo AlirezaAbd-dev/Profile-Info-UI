@@ -9,6 +9,6 @@
 <h2>
 <label>Mobile</label>
 </h2>
-<img src="./image/Screenshot%202023-02-26%20000138.png" />
+<img src="./image/mobile.png" />
 
 </div>
